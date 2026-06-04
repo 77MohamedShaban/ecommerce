@@ -1,6 +1,6 @@
-import 'package:ecommerce/core/resources/constants_manager.dart';
-import 'package:ecommerce/core/resources/values_manager.dart';
-import 'package:ecommerce/features/main_layout/favourite/presentation/widgets/favourite_item.dart';
+import 'package:ecommerce_app/core/resources/constants_manager.dart';
+import 'package:ecommerce_app/core/resources/values_manager.dart';
+import 'package:ecommerce_app/features/main_layout/favourite/presentation/widgets/favourite_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

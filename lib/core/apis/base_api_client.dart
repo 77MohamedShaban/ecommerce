@@ -1,0 +1,36 @@
+import 'package:dio/dio.dart';
+import 'package:ecommerce_app/features/main_layout/home/data/models/brands_response.dart';
+import 'package:ecommerce_app/features/main_layout/home/data/models/categories_response.dart';
+import 'package:ecommerce_app/features/products_screen/data/models/add_to_cart_request_model.dart';
+import 'package:ecommerce_app/features/products_screen/data/models/add_to_cart_response.dart';
+import 'package:ecommerce_app/features/products_screen/data/models/products_response.dart';
+import 'package:injectable/injectable.dart';
+import 'package:retrofit/error_logger.dart';
+import 'package:retrofit/http.dart';
+
+part 'base_api_client.g.dart';
+
+@singleton
+@RestApi(baseUrl: 'https://ecommerce.routemisr.com')
+abstract class BaseApiClient {
+  @factoryMethod
+  factory BaseApiClient(Dio dio) = _BaseApiClient;
+
+  @GET('/api/v1/categories')
+  Future<CategoriesResponse> getAllCategories();
+
+  @GET('/api/v1/brands')
+  Future<BrandsResponse> getAllBrands();
+
+  @GET('/api/v1/products')
+  Future<ProductsResponse> getProducts({
+    @Query('category[in]') String? categoryId,
+    @Query('brand') String? brandId,
+  });
+
+  @POST('/api/v1/cart')
+  Future<AddToCartResponse> addProductToCart({
+    @Body() required AddToCartRequestModel body,
+    @Header('token') required String token,
+  });
+}

@@ -1,4 +1,4 @@
-import 'package:ecommerce/core/resources/color_manager.dart';
+import 'package:ecommerce_app/core/resources/color_manager.dart';
 import 'package:flutter/material.dart';
 
 import 'font_manager.dart';

@@ -1,5 +1,5 @@
-import 'package:ecommerce/core/resources/color_manager.dart';
-import 'package:ecommerce/core/resources/styles_manager.dart';
+import 'package:ecommerce_app/core/resources/color_manager.dart';
+import 'package:ecommerce_app/core/resources/styles_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,7 +12,7 @@ class CustomElevatedButton extends StatelessWidget {
   final void Function() onTap;
   final TextStyle? textStyle;
   final bool isStadiumBorder;
-
+  final bool isLoading;
   const CustomElevatedButton(
       {super.key,
       this.prefixIcon,
@@ -21,6 +21,7 @@ class CustomElevatedButton extends StatelessWidget {
       this.backgroundColor,
       this.radius,
       this.suffixIcon,
+        this.isLoading=false,
       required this.label,
       required this.onTap});
 
@@ -36,7 +37,9 @@ class CustomElevatedButton extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 14.h),
         ),
         onPressed: onTap,
-        child: Row(
+        child: isLoading
+            ?Center(child: CircularProgressIndicator(),)
+            :Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             prefixIcon ?? const SizedBox(),

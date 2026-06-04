@@ -1,9 +1,9 @@
-import 'package:ecommerce/core/resources/assets_manager.dart';
-import 'package:ecommerce/core/resources/color_manager.dart';
-import 'package:ecommerce/core/resources/styles_manager.dart';
-import 'package:ecommerce/core/resources/values_manager.dart';
-import 'package:ecommerce/features/cart/widgets/cart_item_widget.dart';
-import 'package:ecommerce/features/cart/widgets/total_price_and_checkout_botton.dart';
+import 'package:ecommerce_app/core/resources/assets_manager.dart';
+import 'package:ecommerce_app/core/resources/color_manager.dart';
+import 'package:ecommerce_app/core/resources/styles_manager.dart';
+import 'package:ecommerce_app/core/resources/values_manager.dart';
+import 'package:ecommerce_app/features/cart/widgets/cart_item_widget.dart';
+import 'package:ecommerce_app/features/cart/widgets/total_price_and_checkout_botton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
