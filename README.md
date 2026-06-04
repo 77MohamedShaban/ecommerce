@@ -76,7 +76,7 @@ lib/
 ## 🎨 Screenshots 
 | Login | Home | Product Details | Cart |
 | :---: | :---: | :---: | :---: |
-| ![Login](https://via.placeholder.com/200) | ![Home](https://via.placeholder.com/200) | ![Details](https://via.placeholder.com/200) | ![Cart](https://via.placeholder.com/200) |
+|  |  |  |  |
 
 ---
 **Maintained by MOHAMED SHABAN**
