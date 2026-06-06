@@ -25,6 +25,15 @@ import '../../features/auth/presentation/viewmodels/signin_view_model/sign_in_vi
     as _i124;
 import '../../features/auth/presentation/viewmodels/signup_view_model/signu_view_model_cubit.dart'
     as _i462;
+import '../../features/cart/data/api/cart_client.dart' as _i805;
+import '../../features/cart/data/datasource/cart_dao.dart' as _i465;
+import '../../features/cart/data/datasource_impl/cart_api_dao_impl.dart'
+    as _i535;
+import '../../features/cart/data/repo_impl/cart_repo_impl.dart' as _i966;
+import '../../features/cart/domain/repo/cart_repo.dart' as _i379;
+import '../../features/cart/domain/usecase/get_cart_use_case.dart' as _i975;
+import '../../features/cart/presentation/view_model/cart_view_model_cubit.dart'
+    as _i800;
 import '../../features/main_layout/home/data/data_sources/home_tab_data_source.dart'
     as _i263;
 import '../../features/main_layout/home/data/data_sources/home_tab_data_source_impl.dart'
@@ -72,10 +81,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i1046.BaseApiClient>(
         () => _i1046.BaseApiClient(gh<_i361.Dio>()));
     gh.singleton<_i397.AuthClient>(() => _i397.AuthClient(gh<_i361.Dio>()));
+    gh.singleton<_i805.CartClient>(() => _i805.CartClient(gh<_i361.Dio>()));
     gh.factory<_i269.ProductsDataSource>(
         () => _i149.ProductsDataSourceImpl(gh<_i1046.BaseApiClient>()));
     gh.factory<_i263.HomeTabDataSource>(
         () => _i701.HomeTabDataSourceImpl(gh<_i1046.BaseApiClient>()));
+    gh.factory<_i465.CartDao>(
+        () => _i535.CartApiDaoImpl(gh<_i805.CartClient>()));
+    gh.factory<_i379.CartRepo>(() => _i966.CartRepoImpl(gh<_i465.CartDao>()));
     gh.factory<_i164.HomeTabRepository>(
         () => _i899.HomeTabRepositoryImpl(gh<_i263.HomeTabDataSource>()));
     gh.factory<_i753.AuthDao>(
@@ -85,6 +98,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i474.GetAllBrandsUsecase(gh<_i164.HomeTabRepository>()));
     gh.factory<_i870.GetAllCategoriesUsecase>(
         () => _i870.GetAllCategoriesUsecase(gh<_i164.HomeTabRepository>()));
+    gh.singleton<_i975.GetCartUseCase>(
+        () => _i975.GetCartUseCase(gh<_i379.CartRepo>()));
+    gh.factory<_i800.CartViewModelCubit>(
+        () => _i800.CartViewModelCubit(gh<_i975.GetCartUseCase>()));
     gh.factory<_i354.ProductsRepository>(
         () => _i395.ProductsRepositoryImpl(gh<_i269.ProductsDataSource>()));
     gh.singleton<_i277.SignInUseCase>(

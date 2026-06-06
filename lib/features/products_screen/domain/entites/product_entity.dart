@@ -11,6 +11,7 @@ class ProductEntity {
   final String? description;
   final int? quantity;
   final int? price;
+  final int? priceDiscount;
   final String? imageCover;
   final CategoriesEntity? category;
   final BrandsEntity? brand;
@@ -30,5 +31,6 @@ class ProductEntity {
     this.category,
     this.brand,
     this.ratingsAverage,
+    this.priceDiscount
   });
 }

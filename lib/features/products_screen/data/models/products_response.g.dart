@@ -14,7 +14,7 @@ ProductsResponse _$ProductsResponseFromJson(Map<String, dynamic> json) =>
           : Metadata.fromJson(json['metadata'] as Map<String, dynamic>),
       data: (json['data'] as List<dynamic>?)
           ?.map((e) =>
-              e == null ? null : Data.fromJson(e as Map<String, dynamic>))
+              e == null ? null : Product.fromJson(e as Map<String, dynamic>))
           .toList(),
       statusMsg: json['statusMsg'] as String?,
       message: json['message'] as String?,
@@ -29,7 +29,7 @@ Map<String, dynamic> _$ProductsResponseToJson(ProductsResponse instance) =>
       'message': instance.message,
     };
 
-Data _$DataFromJson(Map<String, dynamic> json) => Data(
+Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       sold: (json['sold'] as num?)?.toInt(),
       images:
           (json['images'] as List<dynamic>?)?.map((e) => e as String?).toList(),
@@ -55,9 +55,10 @@ Data _$DataFromJson(Map<String, dynamic> json) => Data(
       ratingsAverage: (json['ratingsAverage'] as num?)?.toInt(),
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
+      priceDiscount: (json['priceAfterDiscount'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
+Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
       'sold': instance.sold,
       'images': instance.images,
       'subcategory': instance.subcategory,
@@ -74,6 +75,7 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
       'ratingsAverage': instance.ratingsAverage,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
+      'priceAfterDiscount': instance.priceDiscount,
     };
 
 Brand _$BrandFromJson(Map<String, dynamic> json) => Brand(

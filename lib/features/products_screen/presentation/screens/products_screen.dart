@@ -82,7 +82,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                       );
                     case ProductsSuccessState():
                       return Expanded(
-                        child: GridView.builder(
+                        child: state.products.isEmpty?Center(child: Text("No Products Found"),):GridView.builder(
                           itemCount: state.products.length,
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
@@ -99,7 +99,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                               title: product.title ?? "",
                               price: product.price?.toDouble() ?? 0,
                               rating: product.ratingsAverage?.toDouble() ?? 0,
-                              discountPercentage: 10,
+                              priceAfterDiscount: product.priceDiscount?.toDouble()??0,
                               height: height,
                               width: width,
                               description: product.description ?? "",

@@ -24,8 +24,8 @@ class CustomCategoryWidget extends StatelessWidget {
       child: Column(
         children: [
           CachedNetworkImage(
-            height: 100,
-            width: 100,
+            height: 100.h,
+            width: 100.w,
             fit: BoxFit.cover,
             imageUrl: category.image,
             placeholder: (context, url) =>

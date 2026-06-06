@@ -12,7 +12,7 @@ class ProductsResponse {
   @JsonKey(name: 'metadata')
   final Metadata? metadata;
   @JsonKey(name: 'data')
-  final List<Data?>? data;
+  final List<Product?>? data;
   @JsonKey(name: "statusMsg")
   final String? statusMsg;
   @JsonKey(name: "message")
@@ -32,7 +32,7 @@ class ProductsResponse {
 }
 
 @JsonSerializable()
-class Data {
+class Product {
   @JsonKey(name: 'sold')
   final int? sold;
   @JsonKey(name: 'images')
@@ -65,8 +65,9 @@ class Data {
   final String? createdAt;
   @JsonKey(name: 'updatedAt')
   final String? updatedAt;
-
-  Data({
+  @JsonKey(name: 'priceAfterDiscount')
+  final int? priceDiscount;
+  Product({
     this.sold,
     this.images,
     this.subcategory,
@@ -83,10 +84,11 @@ class Data {
     this.ratingsAverage,
     this.createdAt,
     this.updatedAt,
+    this.priceDiscount
   });
 
-  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
-  Map<String, dynamic> toJson() => _$DataToJson(this);
+  factory Product.fromJson(Map<String, dynamic> json) => _$ProductFromJson(json);
+  Map<String, dynamic> toJson() => _$ProductToJson(this);
 
   ProductEntity toEntity() {
     return ProductEntity(
@@ -103,6 +105,7 @@ class Data {
       sold: sold,
       brand: brand?.toEntity(),
       category: category?.toEntity(),
+      priceDiscount: priceDiscount
     );
   }
 }
